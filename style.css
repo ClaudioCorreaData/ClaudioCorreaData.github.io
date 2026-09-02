@@ -403,6 +403,8 @@ a {
   width: 62%;
 
   object-fit: contain;
+  filter: none;
+  box-shadow: none;
 }
 
 .hero-decoration {
@@ -869,7 +871,7 @@ a {
 .contact-email {
   color: var(--white);
 
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-size: clamp(1.0rem, 1.4vw, 1.3rem);
 
   font-weight: 700;
 
