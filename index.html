@@ -1,22 +1,38 @@
-<!doctype html>
-<html lang="en-GB">
+from pathlib import Path
+import shutil
+
+# Create the website asset structure.
+base = Path("/mnt/data/TerraNovaWebsite")
+assets = base / "assets"
+assets.mkdir(parents=True, exist_ok=True)
+
+# Copy the user's official Terra Nova Analytics logo.
+source_logo = Path("/mnt/data/ChatGPT Image 2_09_2026, 10_53_52.png")
+target_logo = assets / "logo-globe.png"
+shutil.copy2(source_logo, target_logo)
+
+# Create the first institutional version of index.html.
+index_html = """<!doctype html>
+<html lang="pt-PT">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta
     name="description"
-    content="Cláudio Corrêa — Mathematics, Computational Modelling, Applied Statistics and Data Analysis."
+    content="Terra Nova Analytics — Data Science, Statistics, Computational Modelling and Geospatial Intelligence."
   >
+
+  <meta name="author" content="Terra Nova Analytics">
 
   <meta property="og:type" content="website">
   <meta
     property="og:title"
-    content="Cláudio Corrêa | Mathematics, Modelling & Data Analysis"
+    content="Terra Nova Analytics | Data Science & Computational Modelling"
   >
   <meta
     property="og:description"
-    content="Professional portfolio covering mathematics, computational modelling, applied statistics and data analysis."
+    content="Inteligência científica aplicada a dados, estatística, modelação computacional e informação geoespacial."
   >
   <meta
     property="og:url"
@@ -26,25 +42,23 @@
   <meta name="twitter:card" content="summary">
   <meta
     name="twitter:title"
-    content="Cláudio Corrêa | Mathematics, Modelling & Data Analysis"
+    content="Terra Nova Analytics | Data Science & Computational Modelling"
   >
   <meta
     name="twitter:description"
-    content="Professional portfolio covering mathematics, computational modelling, applied statistics and data analysis."
+    content="Inteligência científica aplicada a dados, estatística, modelação computacional e informação geoespacial."
   >
 
-  <title>
-    Cláudio Corrêa | Mathematics, Modelling & Data Analysis
-  </title>
+  <title>Terra Nova Analytics | Data Science & Computational Modelling</title>
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/logo-globe.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <a class="skip-link" href="#main-content">
-    Skip to content
+    Saltar para o conteúdo
   </a>
 
   <header class="site-header">
@@ -53,335 +67,302 @@
       <a
         class="brand"
         href="#top"
-        aria-label="Cláudio Corrêa — home"
+        aria-label="Terra Nova Analytics — página inicial"
       >
-        Cláudio Corrêa
+        <img
+          class="brand-logo"
+          src="assets/logo-globe.png"
+          alt="Terra Nova Analytics"
+        >
+
+        <span class="brand-name">
+          Terra Nova Analytics
+        </span>
       </a>
 
-      <nav
-        class="site-nav"
-        aria-label="Primary navigation"
-      >
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="#about">Sobre</a>
+        <a href="#services">Serviços</a>
+        <a href="#projects">Projetos</a>
+        <a href="#expertise">Competências</a>
+        <a href="#contact">Contacto</a>
       </nav>
 
     </div>
   </header>
 
-
   <main id="main-content">
 
-    <section
-      class="hero"
-      id="top"
-      aria-labelledby="hero-title"
-    >
-
+    <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero-content">
 
+        <div class="hero-logo">
+          <img
+            src="assets/logo-globe.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </div>
+
         <p class="eyebrow">
-          Mathematics · Computational Modelling · Applied Statistics · Data Analysis
+          DATA SCIENCE · STATISTICS · COMPUTATIONAL MODELLING · GEOSPATIAL INTELLIGENCE
         </p>
 
         <h1 id="hero-title">
-          Mathematical and computational methods for analysing complex systems and data.
+          Terra Nova Analytics
         </h1>
 
+        <p class="hero-slogan">
+          Inteligência científica para decisões sustentáveis.
+        </p>
+
         <p class="hero-text">
-          A professional portfolio combining mathematical modelling,
-          computational methods, applied statistics and data analysis
-          to investigate complex systems and support evidence-based decisions.
+          Transformamos dados em conhecimento para apoiar decisões
+          fundamentadas, através de análise estatística, modelação
+          matemática e computacional, ciência de dados e inteligência
+          geoespacial.
         </p>
 
         <div class="hero-actions">
-
-          <a
-            class="button button-primary"
-            href="#projects"
-          >
-            View projects
+          <a class="button button-primary" href="#services">
+            Conheça os nossos serviços
           </a>
 
-          <a
-            class="button button-secondary"
-            href="https://github.com/ClaudioCorreaData"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
+          <a class="button button-secondary" href="#projects">
+            Ver projetos
           </a>
-
         </div>
 
       </div>
-
     </section>
 
-
-    <section
-      class="section"
-      id="about"
-      aria-labelledby="about-title"
-    >
-
+    <section class="section" id="about" aria-labelledby="about-title">
       <div class="container narrow">
 
-        <p class="section-label">
-          About
-        </p>
+        <p class="section-label">Sobre</p>
 
         <h2 id="about-title">
-          Mathematics applied to modelling and quantitative thinking applied to real problems.
+          Ciência, dados e modelação aplicados a problemas reais.
         </h2>
 
         <p>
-          My work combines mathematics, computational modelling,
-          applied statistics and data analysis to investigate complex
-          systems, extract meaningful information from data and support
-          evidence-based decisions.
+          A Terra Nova Analytics desenvolve soluções baseadas em
+          métodos quantitativos para análise de dados, estatística,
+          modelação matemática e computacional e informação geoespacial.
         </p>
 
         <p>
-          The portfolio brings together computational and analytical
-          approaches, including OpenFOAM, statistical analysis, Python,
-          R, SQL, Power BI and Tableau.
+          O nosso trabalho procura transformar dados complexos em
+          conhecimento estruturado, evidência científica e informação
+          útil para apoiar decisões.
         </p>
 
       </div>
-
     </section>
-
 
     <section
       class="section section-alt"
+      id="services"
+      aria-labelledby="services-title"
+    >
+      <div class="container">
+
+        <p class="section-label">Serviços</p>
+
+        <h2 id="services-title">
+          Soluções baseadas em inteligência científica.
+        </h2>
+
+        <div class="service-grid">
+
+          <article class="service-card">
+            <h3>Data Science & Analytics</h3>
+            <p>
+              Exploração, tratamento e análise de dados para identificar
+              padrões, relações e informação relevante para a decisão.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Statistics</h3>
+            <p>
+              Inferência estatística, testes de hipóteses, análise de
+              efeitos, validação quantitativa e interpretação de resultados.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Computational Modelling</h3>
+            <p>
+              Modelação matemática e computacional, métodos numéricos e
+              simulação de sistemas complexos.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Geospatial Intelligence</h3>
+            <p>
+              Análise espacial, informação geográfica, cartografia
+              digital e integração de dados geoespaciais.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section"
       id="projects"
       aria-labelledby="projects-title"
     >
-
       <div class="container">
 
-        <p class="section-label">
-          Selected projects
-        </p>
+        <p class="section-label">Projetos</p>
 
         <h2 id="projects-title">
-          Projects
+          Projetos selecionados.
         </h2>
 
         <div class="project-grid">
 
           <article class="project-card">
-
             <p class="project-type">
-              Data Analysis · Power BI · SQL · Python · Statistics
+              DATA ANALYTICS · STATISTICS · SQL · PYTHON · POWER BI
             </p>
 
-            <h3>
-              Retail Analytics
-            </h3>
+            <h3>Retail Analytics</h3>
 
             <p>
-              Analysis of retail performance, product and customer
-              patterns, decision segments and profitability. The project
-              combines Power BI exploration with SQL data analysis and
-              independent statistical validation in Python.
+              Análise de desempenho comercial, produtos e clientes,
+              combinando SQL, Python, Power BI e validação estatística
+              para apoiar decisões baseadas em evidência.
             </p>
 
-            <span class="text-muted">
-              Technical repository in preparation
-            </span>
-
+            <a class="text-link" href="#contact">
+              Ver projeto
+            </a>
           </article>
-
 
           <article class="project-card">
-
             <p class="project-type">
-              Computational Modelling · OpenFOAM
+              COMPUTATIONAL MODELLING · NUMERICAL METHODS
             </p>
 
-            <h3>
-              Computational Modelling
-            </h3>
+            <h3>Computational Modelling</h3>
 
             <p>
-              Projects involving mathematical and computational modelling,
-              numerical methods and scientific computing, with emphasis
-              on OpenFOAM-based simulation workflows.
+              Desenvolvimento de modelos matemáticos e computacionais
+              para análise e simulação de sistemas complexos.
             </p>
 
-            <span class="text-muted">
-              Project in preparation
-            </span>
-
+            <a class="text-link" href="#contact">
+              Ver projetos
+            </a>
           </article>
 
-
-          <article class="project-card project-card-placeholder">
-
+          <article class="project-card">
             <p class="project-type">
-              Data Visualisation · Tableau
+              DATA VISUALISATION · BUSINESS INTELLIGENCE
             </p>
 
-            <h3>
-              Tableau Analytics
-            </h3>
+            <h3>Data Visualisation</h3>
 
             <p>
-              A future project focused on analytical storytelling,
-              interactive visualisation and data-driven communication
-              using Tableau.
+              Desenvolvimento de visualizações e dashboards para
+              transformar informação quantitativa em conhecimento
+              acessível e acionável.
             </p>
 
-            <span class="text-muted">
-              Project in preparation
-            </span>
-
-          </article>
-
-
-          <article class="project-card project-card-placeholder">
-
-            <p class="project-type">
-              Applied Statistics
-            </p>
-
-            <h3>
-              Statistical Analysis
-            </h3>
-
-            <p>
-              Applied statistical analysis focused on inference,
-              hypothesis testing, effect sizes and quantitative
-              interpretation of real-world data.
-            </p>
-
-            <span class="text-muted">
-              Project in preparation
-            </span>
-
+            <a class="text-link" href="#contact">
+              Em preparação
+            </a>
           </article>
 
         </div>
-
       </div>
-
     </section>
-
-
-    <section
-      class="section"
-      id="skills"
-      aria-labelledby="skills-title"
-    >
-
-      <div class="container">
-
-        <p class="section-label">
-          Core skills
-        </p>
-
-        <h2 id="skills-title">
-          Areas and tools
-        </h2>
-
-        <ul
-          class="skills-list"
-          aria-label="Core skills"
-        >
-          <li>Mathematics</li>
-          <li>Computational Modelling</li>
-          <li>OpenFOAM</li>
-          <li>Applied Statistics</li>
-          <li>Data Analysis</li>
-          <li>Python</li>
-          <li>R</li>
-          <li>SQL</li>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Numerical Methods</li>
-          <li>Scientific Computing</li>
-        </ul>
-
-      </div>
-
-    </section>
-
 
     <section
       class="section section-alt"
-      id="contact"
-      aria-labelledby="contact-title"
+      id="expertise"
+      aria-labelledby="expertise-title"
     >
+      <div class="container">
 
+        <p class="section-label">Competências</p>
+
+        <h2 id="expertise-title">
+          Métodos e tecnologias.
+        </h2>
+
+        <ul class="skills-list" aria-label="Competências técnicas">
+          <li>Data Science</li>
+          <li>Data Analytics</li>
+          <li>Statistics</li>
+          <li>Mathematical Modelling</li>
+          <li>Computational Modelling</li>
+          <li>Geospatial Analysis</li>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>R</li>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Numerical Methods</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container narrow">
 
-        <p class="section-label">
-          Contact
-        </p>
+        <p class="section-label">Contacto</p>
 
         <h2 id="contact-title">
-          Professional contact
+          Vamos transformar dados em conhecimento.
         </h2>
 
         <p>
-          For professional enquiries, project discussions or collaboration:
+          Para informações sobre projetos, análise de dados,
+          modelação ou colaboração profissional:
         </p>
 
         <div class="contact-links">
-
           <a
             class="button button-primary"
-            href="mailto:claudio.correa.analytics@gmail.com"
+            href="mailto:TNAnalytics@gmail.com"
           >
-            Email
+            TNAnalytics@gmail.com
           </a>
-
-          <a
-            class="button button-secondary"
-            href="https://github.com/ClaudioCorreaData"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-
-          <a
-            class="button button-secondary"
-            href="https://www.linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-
         </div>
 
       </div>
-
     </section>
 
   </main>
 
-
   <footer class="site-footer">
-
     <div class="container footer-inner">
 
       <p>
-        © 2026 Cláudio Corrêa
+        © 2026 Terra Nova Analytics
       </p>
 
       <p>
-        Mathematics · Modelling · Statistics · Data Analysis
+        Data Science · Statistics · Computational Modelling ·
+        Geospatial Intelligence
       </p>
 
     </div>
-
   </footer>
 
 </body>
 </html>
+"""
+
+(base / "index.html").write_text(index_html, encoding="utf-8")
+
+print(f"Ficheiros preparados em: {base}")
+print(f"index.html: {(base / 'index.html').stat().st_size} bytes")
+print(f"logo-globe.png: {target_logo.stat().st_size} bytes")
