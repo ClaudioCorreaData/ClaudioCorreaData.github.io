@@ -1,18 +1,4 @@
-from pathlib import Path
-import shutil
-
-# Create the website asset structure.
-base = Path("/mnt/data/TerraNovaWebsite")
-assets = base / "assets"
-assets.mkdir(parents=True, exist_ok=True)
-
-# Copy the user's official Terra Nova Analytics logo.
-source_logo = Path("/mnt/data/ChatGPT Image 2_09_2026, 10_53_52.png")
-target_logo = assets / "logo-globe.png"
-shutil.copy2(source_logo, target_logo)
-
-# Create the first institutional version of index.html.
-index_html = """<!doctype html>
+<!doctype html>
 <html lang="pt-PT">
 <head>
   <meta charset="utf-8">
@@ -20,19 +6,17 @@ index_html = """<!doctype html>
 
   <meta
     name="description"
-    content="Terra Nova Analytics — Data Science, Statistics, Computational Modelling and Geospatial Intelligence."
+    content="Terra Nova Analytics — Data Science, Estatística, Modelação Matemática e Computacional e Inteligência Geoespacial."
   >
-
-  <meta name="author" content="Terra Nova Analytics">
 
   <meta property="og:type" content="website">
   <meta
     property="og:title"
-    content="Terra Nova Analytics | Data Science & Computational Modelling"
+    content="Terra Nova Analytics | Inteligência Científica para Decisões Sustentáveis"
   >
   <meta
     property="og:description"
-    content="Inteligência científica aplicada a dados, estatística, modelação computacional e informação geoespacial."
+    content="Análise de dados, estatística, modelação matemática e computacional e inteligência geoespacial."
   >
   <meta
     property="og:url"
@@ -42,14 +26,14 @@ index_html = """<!doctype html>
   <meta name="twitter:card" content="summary">
   <meta
     name="twitter:title"
-    content="Terra Nova Analytics | Data Science & Computational Modelling"
+    content="Terra Nova Analytics | Inteligência Científica para Decisões Sustentáveis"
   >
   <meta
     name="twitter:description"
-    content="Inteligência científica aplicada a dados, estatística, modelação computacional e informação geoespacial."
+    content="Análise de dados, estatística, modelação matemática e computacional e inteligência geoespacial."
   >
 
-  <title>Terra Nova Analytics | Data Science & Computational Modelling</title>
+  <title>Terra Nova Analytics | Inteligência Científica para Decisões Sustentáveis</title>
 
   <link rel="icon" href="assets/logo-globe.png" type="image/png">
   <link rel="stylesheet" href="style.css">
@@ -64,27 +48,20 @@ index_html = """<!doctype html>
   <header class="site-header">
     <div class="container header-inner">
 
-      <a
-        class="brand"
-        href="#top"
-        aria-label="Terra Nova Analytics — página inicial"
-      >
+      <a class="brand" href="#top" aria-label="Terra Nova Analytics — início">
         <img
           class="brand-logo"
           src="assets/logo-globe.png"
           alt="Terra Nova Analytics"
         >
-
-        <span class="brand-name">
-          Terra Nova Analytics
-        </span>
+        <span class="brand-name">Terra Nova Analytics</span>
       </a>
 
       <nav class="site-nav" aria-label="Navegação principal">
         <a href="#about">Sobre</a>
         <a href="#services">Serviços</a>
         <a href="#projects">Projetos</a>
-        <a href="#expertise">Competências</a>
+        <a href="#skills">Competências</a>
         <a href="#contact">Contacto</a>
       </nav>
 
@@ -93,276 +70,443 @@ index_html = """<!doctype html>
 
   <main id="main-content">
 
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="container hero-content">
+    <!-- Hero -->
 
-        <div class="hero-logo">
-          <img
-            src="assets/logo-globe.png"
-            alt=""
-            aria-hidden="true"
-          >
+    <section class="hero" id="top" aria-labelledby="hero-title">
+
+      <div class="hero-decoration hero-decoration-one"></div>
+      <div class="hero-decoration hero-decoration-two"></div>
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            DATA SCIENCE · STATISTICS · COMPUTATIONAL MODELLING · GEOSPATIAL INTELLIGENCE
+          </p>
+
+          <h1 id="hero-title">
+            Inteligência científica
+            <span>para decisões sustentáveis.</span>
+          </h1>
+
+          <p class="hero-text">
+            Transformamos dados em conhecimento para apoiar decisões
+            fundamentadas através de análise estatística, modelação
+            matemática e computacional e inteligência geoespacial.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#services">
+              Conhecer serviços
+            </a>
+
+            <a class="button button-outline" href="#projects">
+              Ver projetos
+            </a>
+          </div>
+
         </div>
 
-        <p class="eyebrow">
-          DATA SCIENCE · STATISTICS · COMPUTATIONAL MODELLING · GEOSPATIAL INTELLIGENCE
-        </p>
-
-        <h1 id="hero-title">
-          Terra Nova Analytics
-        </h1>
-
-        <p class="hero-slogan">
-          Inteligência científica para decisões sustentáveis.
-        </p>
-
-        <p class="hero-text">
-          Transformamos dados em conhecimento para apoiar decisões
-          fundamentadas, através de análise estatística, modelação
-          matemática e computacional, ciência de dados e inteligência
-          geoespacial.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#services">
-            Conheça os nossos serviços
-          </a>
-
-          <a class="button button-secondary" href="#projects">
-            Ver projetos
-          </a>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-logo-frame">
+            <img
+              src="assets/logo-globe.png"
+              alt=""
+              class="hero-logo"
+            >
+          </div>
         </div>
 
       </div>
+
     </section>
+
+    <!-- About -->
 
     <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container narrow">
 
-        <p class="section-label">Sobre</p>
+      <div class="container about-grid">
 
-        <h2 id="about-title">
-          Ciência, dados e modelação aplicados a problemas reais.
-        </h2>
+        <div>
+          <p class="section-label">Sobre</p>
 
-        <p>
-          A Terra Nova Analytics desenvolve soluções baseadas em
-          métodos quantitativos para análise de dados, estatística,
-          modelação matemática e computacional e informação geoespacial.
-        </p>
+          <h2 id="about-title">
+            Ciência, dados e modelação aplicados a problemas reais.
+          </h2>
+        </div>
 
-        <p>
-          O nosso trabalho procura transformar dados complexos em
-          conhecimento estruturado, evidência científica e informação
-          útil para apoiar decisões.
-        </p>
+        <div class="about-content">
+
+          <p class="lead">
+            A Terra Nova Analytics desenvolve soluções baseadas em
+            métodos científicos e quantitativos para transformar dados
+            complexos em informação útil para a decisão.
+          </p>
+
+          <p>
+            Combinamos análise de dados, estatística, matemática,
+            modelação computacional e informação geoespacial para
+            estudar sistemas, identificar padrões, avaliar cenários
+            e apoiar decisões fundamentadas.
+          </p>
+
+          <p>
+            O nosso trabalho procura estabelecer uma ligação clara
+            entre métodos científicos, tecnologia e problemas
+            concretos de organizações e empresas.
+          </p>
+
+        </div>
 
       </div>
+
     </section>
+
+    <!-- Services -->
 
     <section
       class="section section-alt"
       id="services"
       aria-labelledby="services-title"
     >
+
       <div class="container">
 
-        <p class="section-label">Serviços</p>
+        <div class="section-heading">
+          <p class="section-label">Serviços</p>
 
-        <h2 id="services-title">
-          Soluções baseadas em inteligência científica.
-        </h2>
+          <h2 id="services-title">
+            Áreas de intervenção
+          </h2>
+
+          <p>
+            Soluções quantitativas orientadas para análise,
+            compreensão e suporte à decisão.
+          </p>
+        </div>
 
         <div class="service-grid">
 
           <article class="service-card">
-            <h3>Data Science & Analytics</h3>
+
+            <span class="card-number">01</span>
+
+            <h3>Data Science &amp; Analytics</h3>
+
             <p>
-              Exploração, tratamento e análise de dados para identificar
-              padrões, relações e informação relevante para a decisão.
+              Exploração, tratamento e análise de dados para
+              identificar padrões, relações e informação relevante
+              para a tomada de decisão.
             </p>
+
+            <ul>
+              <li>Análise exploratória</li>
+              <li>Data analytics</li>
+              <li>Business intelligence</li>
+            </ul>
+
           </article>
 
           <article class="service-card">
-            <h3>Statistics</h3>
+
+            <span class="card-number">02</span>
+
+            <h3>Estatística</h3>
+
             <p>
-              Inferência estatística, testes de hipóteses, análise de
-              efeitos, validação quantitativa e interpretação de resultados.
+              Aplicação de métodos estatísticos para inferência,
+              comparação, validação e interpretação quantitativa
+              de dados.
             </p>
+
+            <ul>
+              <li>Inferência estatística</li>
+              <li>Testes de hipóteses</li>
+              <li>Modelação estatística</li>
+            </ul>
+
           </article>
 
           <article class="service-card">
-            <h3>Computational Modelling</h3>
+
+            <span class="card-number">03</span>
+
+            <h3>Modelação Matemática e Computacional</h3>
+
             <p>
-              Modelação matemática e computacional, métodos numéricos e
-              simulação de sistemas complexos.
+              Desenvolvimento e utilização de modelos matemáticos
+              e computacionais para estudar sistemas complexos,
+              simular cenários e apoiar a análise de fenómenos.
             </p>
+
+            <ul>
+              <li>Modelação matemática</li>
+              <li>Métodos numéricos</li>
+              <li>Simulação computacional</li>
+            </ul>
+
           </article>
 
           <article class="service-card">
-            <h3>Geospatial Intelligence</h3>
+
+            <span class="card-number">04</span>
+
+            <h3>Inteligência Geoespacial</h3>
+
             <p>
-              Análise espacial, informação geográfica, cartografia
-              digital e integração de dados geoespaciais.
+              Análise de informação espacial para compreender
+              relações territoriais, padrões geográficos e
+              distribuição de fenómenos.
             </p>
+
+            <ul>
+              <li>Análise espacial</li>
+              <li>Dados geográficos</li>
+              <li>Informação territorial</li>
+            </ul>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <section
-      class="section"
-      id="projects"
-      aria-labelledby="projects-title"
-    >
+    <!-- Projects -->
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+
       <div class="container">
 
-        <p class="section-label">Projetos</p>
+        <div class="section-heading">
+          <p class="section-label">Projetos</p>
 
-        <h2 id="projects-title">
-          Projetos selecionados.
-        </h2>
+          <h2 id="projects-title">
+            Projetos selecionados
+          </h2>
+
+          <p>
+            Aplicação de métodos quantitativos e computacionais
+            a problemas concretos.
+          </p>
+        </div>
 
         <div class="project-grid">
 
-          <article class="project-card">
-            <p class="project-type">
-              DATA ANALYTICS · STATISTICS · SQL · PYTHON · POWER BI
-            </p>
+          <article class="project-card project-featured">
+
+            <div class="project-top">
+              <span class="project-type">
+                DATA ANALYTICS · SQL · PYTHON · POWER BI · STATISTICS
+              </span>
+
+              <span class="project-index">01</span>
+            </div>
 
             <h3>Retail Analytics</h3>
 
             <p>
-              Análise de desempenho comercial, produtos e clientes,
-              combinando SQL, Python, Power BI e validação estatística
-              para apoiar decisões baseadas em evidência.
+              Análise de desempenho comercial, produtos, clientes,
+              segmentos e rentabilidade. O projeto combina exploração
+              de dados, SQL, Python, estatística e visualização
+              analítica em Power BI.
             </p>
 
-            <a class="text-link" href="#contact">
-              Ver projeto
-            </a>
+            <span class="project-status">
+              Projeto de portefólio
+            </span>
+
           </article>
 
           <article class="project-card">
-            <p class="project-type">
-              COMPUTATIONAL MODELLING · NUMERICAL METHODS
-            </p>
+
+            <div class="project-top">
+              <span class="project-type">
+                MATHEMATICAL MODELLING · OPENFOAM
+              </span>
+
+              <span class="project-index">02</span>
+            </div>
 
             <h3>Computational Modelling</h3>
 
             <p>
-              Desenvolvimento de modelos matemáticos e computacionais
-              para análise e simulação de sistemas complexos.
+              Aplicação de métodos matemáticos e computacionais
+              à modelação e simulação de sistemas físicos e
+              processos complexos.
             </p>
 
-            <a class="text-link" href="#contact">
-              Ver projetos
-            </a>
+            <span class="project-status">
+              Projeto em desenvolvimento
+            </span>
+
           </article>
 
           <article class="project-card">
-            <p class="project-type">
-              DATA VISUALISATION · BUSINESS INTELLIGENCE
-            </p>
+
+            <div class="project-top">
+              <span class="project-type">
+                DATA VISUALISATION · TABLEAU
+              </span>
+
+              <span class="project-index">03</span>
+            </div>
 
             <h3>Data Visualisation</h3>
 
             <p>
-              Desenvolvimento de visualizações e dashboards para
-              transformar informação quantitativa em conhecimento
-              acessível e acionável.
+              Projeto orientado para exploração visual,
+              comunicação analítica e apresentação de informação
+              quantitativa através de dashboards interativos.
             </p>
 
-            <a class="text-link" href="#contact">
-              Em preparação
-            </a>
+            <span class="project-status">
+              Projeto em preparação
+            </span>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
+
+    <!-- Skills -->
 
     <section
-      class="section section-alt"
-      id="expertise"
-      aria-labelledby="expertise-title"
+      class="section section-dark"
+      id="skills"
+      aria-labelledby="skills-title"
     >
+
       <div class="container">
 
-        <p class="section-label">Competências</p>
+        <div class="section-heading section-heading-dark">
 
-        <h2 id="expertise-title">
-          Métodos e tecnologias.
-        </h2>
+          <p class="section-label">Competências</p>
 
-        <ul class="skills-list" aria-label="Competências técnicas">
-          <li>Data Science</li>
-          <li>Data Analytics</li>
-          <li>Statistics</li>
-          <li>Mathematical Modelling</li>
-          <li>Computational Modelling</li>
-          <li>Geospatial Analysis</li>
-          <li>Python</li>
-          <li>SQL</li>
-          <li>R</li>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Numerical Methods</li>
-        </ul>
+          <h2 id="skills-title">
+            Métodos e tecnologias
+          </h2>
+
+        </div>
+
+        <div class="skills-groups">
+
+          <div class="skill-group">
+            <h3>Métodos</h3>
+
+            <div class="skill-list">
+              <span>Data Science</span>
+              <span>Data Analytics</span>
+              <span>Statistics</span>
+              <span>Mathematical Modelling</span>
+              <span>Computational Modelling</span>
+              <span>Geospatial Analysis</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tecnologias</h3>
+
+            <div class="skill-list">
+              <span>Python</span>
+              <span>R</span>
+              <span>SQL</span>
+              <span>Power BI</span>
+              <span>Tableau</span>
+              <span>OpenFOAM</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Computação científica</h3>
+
+            <div class="skill-list">
+              <span>Numerical Methods</span>
+              <span>Scientific Computing</span>
+              <span>Statistical Inference</span>
+              <span>Simulation</span>
+            </div>
+          </div>
+
+        </div>
 
       </div>
+
     </section>
 
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="container narrow">
+    <!-- Contact -->
 
-        <p class="section-label">Contacto</p>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
 
-        <h2 id="contact-title">
-          Vamos transformar dados em conhecimento.
-        </h2>
+      <div class="container contact-grid">
 
-        <p>
-          Para informações sobre projetos, análise de dados,
-          modelação ou colaboração profissional:
-        </p>
+        <div>
 
-        <div class="contact-links">
+          <p class="section-label section-label-light">
+            Contacto
+          </p>
+
+          <h2 id="contact-title">
+            Vamos transformar dados em conhecimento.
+          </h2>
+
+          <p>
+            Para projetos de análise de dados, estatística,
+            modelação matemática e computacional ou inteligência
+            geoespacial.
+          </p>
+
+        </div>
+
+        <div class="contact-action">
+
           <a
-            class="button button-primary"
+            class="contact-email"
             href="mailto:TNAnalytics@gmail.com"
           >
             TNAnalytics@gmail.com
           </a>
+
+          <a
+            class="button button-light"
+            href="mailto:TNAnalytics@gmail.com"
+          >
+            Contactar a Terra Nova Analytics
+          </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
 
   <footer class="site-footer">
+
     <div class="container footer-inner">
 
-      <p>
-        © 2026 Terra Nova Analytics
-      </p>
+      <div>
+        <strong>Terra Nova Analytics</strong>
 
-      <p>
-        Data Science · Statistics · Computational Modelling ·
-        Geospatial Intelligence
-      </p>
+        <p>
+          Inteligência científica para decisões sustentáveis.
+        </p>
+      </div>
+
+      <div class="footer-meta">
+        <p>© 2026 Terra Nova Analytics</p>
+        <p>Portugal</p>
+      </div>
 
     </div>
+
   </footer>
 
 </body>
 </html>
-"""
-
-(base / "index.html").write_text(index_html, encoding="utf-8")
-
-print(f"Ficheiros preparados em: {base}")
-print(f"index.html: {(base / 'index.html').stat().st_size} bytes")
-print(f"logo-globe.png: {target_logo.stat().st_size} bytes")
